@@ -1,0 +1,21 @@
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return 0
+
+        index = 0
+        
+        count = 1
+
+        while index + nums[index] < len(nums) - 1:
+            sum = 0
+            for i in range(index + 1, index + 1 + nums[index]):
+                if nums[i] + i >= sum:
+                    index = i
+                    sum = nums[i] + i
+            count += 1
+
+        return count
+
+
+        
